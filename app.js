@@ -29,7 +29,7 @@ app.all("*",(req,res,next)=>{
     next();
 })
 
-app.listen(8000,async()=>
+app.listen(8080,async()=>
 {  
     try {
         await connections ;
@@ -37,5 +37,5 @@ app.listen(8000,async()=>
     } catch (error) {
         console.log(error);
     }
-    console.log(`Server running at http://127.0.0.1:${8000}`);
+    console.log(`Server running at http://127.0.0.1:${8080}`);
 })
