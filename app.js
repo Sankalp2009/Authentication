@@ -29,7 +29,7 @@ app.all("*",(req,res,next)=>{
     next();
 })
 
-server.listen(8000,async()=>
+app.listen(8000,async()=>
 {  
     try {
         await connections ;
