@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
- },
+  },
   "author": "sankalp",
   "license": "ISC",
   "dependencies": {
@@ -17,7 +17,6 @@
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^4.13.0",
     "mongoose": "^6.8.0",
-    "nodemon": "^2.0.20",
-    "socket.io": "^4.5.4"
+    "nodemon": "^2.0.20"
   }
 }
