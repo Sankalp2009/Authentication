@@ -6,16 +6,16 @@ dotenv.config({path: './config.env'});
 
 exports.Signup = async(req,res)=>
 {
-    const {username,password} = req.body;
-    const userPresent = await User.findOne({username})
+    const {email,password} = req.body;
+    const userPresent = await User.findOne({email})
 
-    if(userPresent?.username){
+    if(userPresent?.email){
         res.send({"msg": "User already exist"})
     }
     else{
         try{
             bcrypt.hash(password, 4, async function(err, hash) {
-                const user = new User({username,password:hash})
+                const user = new User({email,password:hash})
                 console.log(user);
                 await user.save()
                 res.status(202).json({
@@ -38,8 +38,8 @@ exports.Signup = async(req,res)=>
 
 exports.Login = async(req,res)=>{
     
-    const {username,password} = req.body;
-    const user = await User.findOne({username}).lean()
+    const {email,password} = req.body;
+    const user = await User.findOne({email}).lean()
 
     if(!user)
     {
@@ -51,7 +51,7 @@ exports.Login = async(req,res)=>{
     {
       const Token = jwt.sign({
         id : user._id,
-        username: user.username,
+        email: user.email,
       }, process.env.JWT_SECRET)
 
       return res.status(200).json({
