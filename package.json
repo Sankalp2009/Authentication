@@ -4,7 +4,7 @@
   "description": "Developing Authentication",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "sankalp",
   "license": "ISC",
